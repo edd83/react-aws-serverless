@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
-import "./Login.css";
+import "./Login.scss";
 import { Auth } from "aws-amplify";
 
 export default class Login extends Component {
@@ -33,7 +33,6 @@ export default class Login extends Component {
       try {
           await Auth.signIn(this.state.email, this.state.password);
           this.props.userHasAuthenticated(true);
-          this.props.history.push("/");
       } catch (e) {
           alert(e.message);
           this.setState({
